@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
-def main():
-    number = float(input())
-    if number < 0:
-        print("This number is negative.")
-    elif number > 0:
-        print("This number is positive.")
+try:
+    num = int(input())  
+    if num == 0:
+        print("This number is equal to zero.")
     else:
-        print("This number is both positive and negative.")
-
-if __name__ == "__main__":
-    main()
+        print("This number is different from zero.")
+except ValueError:
+    print("Not a number, please enter a number") 
