@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-def main():
-    number = float(input())  
-    if number == 0:
+try:
+    num = int(input())  
+    if num == 0:
         print("This number is equal to zero.")
     else:
         print("This number is different from zero.")
-
-if __name__ == "__main__":
-    main()
+except ValueError:
+    print("Not a number, please enter a number")  
 
 
