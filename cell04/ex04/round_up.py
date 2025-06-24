@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
 
-def main():
+import math
 
-    n = float(input("Give me a number: "))
-    
-    if n == int(n):
-        rn = int(n)  
-    else:
-        rn = int(n) + 1  
-    
-    print(f"{rn}")
-
-if __name__ == "__main__":
-    main()
+try:
+    num = float(input("Give me a number: "))
+    rounded = math.ceil(num)  # ปัดขึ้น
+    print(rounded)
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
