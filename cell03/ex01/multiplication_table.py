@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
-def main():
-    n = int(input("Enter a number\n"))
+try:
+    num = int(input("Enter a number\n"))
 
-    for i in range(0, 10):  
-        print(f"{i} x {n} = {n * i}")
+    i = 0
+    while i < 10:
+        print(f"{i} x {num} = {i * num}")
+        i += 1
 
-if __name__ == "__main__":
-    main()
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
