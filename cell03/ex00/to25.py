@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 
-def main():
+try:
+    num = int(input("Enter a number less than 25\n"))
 
-    n = int(input("Enter a number less than 25\n"))
-    
-    if n > 25:
+    if num > 25:
         print("Error")
     else:
-        while n <= 25:
-            print(f"Inside the loop, my variable is {n}")
-            n += 1
-
-if __name__ == "__main__":
-    main()
+        while num <= 25:
+            print(f"Inside the loop, my variable is {num}")
+            num += 1
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
