@@ -3,6 +3,10 @@ def checkmate(bd):
     bd = bd.splitlines()
     sz = len(bd)
 
+    if any(len(row) != sz for row in bd):
+        print("Invalid board: not a square.")
+        return
+
     kp = None
     for x in range(sz):
         for y in range(sz):
@@ -11,6 +15,10 @@ def checkmate(bd):
                 break
         if kp:
             break
+
+    if not kp:
+        print("Invalid board: no King found.")
+        return
 
     kx, ky = kp
 
@@ -63,3 +71,4 @@ def checkmate(bd):
         return
 
     print("Fail")
+

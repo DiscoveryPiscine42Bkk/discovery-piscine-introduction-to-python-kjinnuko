@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def checkmate(bd):
     bd = bd.splitlines()
     sz = len(bd)
