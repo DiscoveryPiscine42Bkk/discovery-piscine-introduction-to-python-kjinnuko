@@ -2,19 +2,11 @@
 
 import sys
 
-def main():
- 
-    if len(sys.argv) == 1:
-        print("none")
-        return
+params = sys.argv[1:]
 
-   
-    for param in sys.argv[1:]:
-    
-        if param.endswith("ism"):
-            continue
-     
-        print(f"{param}ism")
-
-if __name__ == "__main__":
-    main()
+if not params:
+    print("none")
+else:
+    for p in params:
+        if not p.endswith("ism"):
+            print(p + "ism")

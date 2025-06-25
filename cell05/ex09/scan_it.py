@@ -3,21 +3,15 @@
 import sys
 import re
 
-def main():
-    if len(sys.argv) != 3:
-        print("none")
-        return
-
+if len(sys.argv) != 3:
+    print("none")
+else:
     keyword = sys.argv[1]
-    search_string = sys.argv[2]
+    text = sys.argv[2]
 
-    matches = re.findall(rf'\b{re.escape(keyword)}\b', search_string)
+    matches = re.findall(re.escape(keyword), text)
 
-   
     if matches:
         print(len(matches))
     else:
         print("none")
-
-if __name__ == "__main__":
-    main()
