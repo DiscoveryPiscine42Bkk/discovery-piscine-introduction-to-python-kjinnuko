@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-def checkmate(bd):
-    bd = bd.splitlines()
+import sys
+
+from pathlib import Path
+
+def checkmate(bd_str):
+    bd = bd_str.splitlines()
     sz = len(bd)
 
     if any(len(row) != sz for row in bd):
-        print("Invalid board: not a square.")
-        return
+        return "Error"
 
     kp = None
     for x in range(sz):
@@ -17,8 +20,7 @@ def checkmate(bd):
             break
 
     if not kp:
-        print("Invalid board: no King found.")
-        return
+        return "Error"
 
     kx, ky = kp
 
@@ -55,19 +57,29 @@ def checkmate(bd):
         return False
 
     if cd(0, 1, 'RQ') or cd(0, -1, 'RQ') or cd(1, 0, 'RQ') or cd(-1, 0, 'RQ'):
-        print("Success")
-        return
+        return "Success"
 
     if cd(1, 1, 'BQ') or cd(1, -1, 'BQ') or cd(-1, 1, 'BQ') or cd(-1, -1, 'BQ'):
-        print("Success")
-        return
+        return "Success"
 
     if cp():
-        print("Success")
-        return
+        return "Success"
 
     if ck():
-        print("Success")
-        return
+        return "Success"
 
-    print("Fail")
+    return "Fail"
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py board1.chess [board2.chess ...]")
+        sys.exit(1)
+
+    for file in sys.argv[1:]:
+        try:
+            with open(file, "r") as f:
+                board_data = f.read()
+                result = checkmate(board_data)
+                print(result)
+        except Exception:
+            print("Error")
